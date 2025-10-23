@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | MJ Fitness</title>
+    <link rel="shortcut icon" href="../logo.png" type="image/x-icon">
+
+  <link href="./output.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-auth.js"></script>
+
+
+</head>
+<body class="bg-zinc-900 text-white">
+
+    <!-- navbar -->
+  <nav
+    
+    class=" fade-element backdrop-blur-lg flex items-center justify-between px-6 py-4 fixed top-0 left-0 w-full z-50 shadow-lg"
+  >
+    <div class="flex items-center space-x-3">
+      <img src="../logo.png" alt="Logo" class="w-12 h-12 rounded-full" />
+      <h1 class="text-2xl font-[Poppins] font-bold tracking-wider">
+        MJ<span class="text-red-600">Fitness</span>
+      </h1>
+    </div>
+
+    <div class="absolute left-1/2 md:text-center md:left-1/4 md:ms-8">
+      <ul
+        class="font-[Poppins] cursor-pointer hidden md:flex space-x-9 text-gray-200 font-medium text-sm"
+      >
+        <li><a href="../index.html" class="hover:text-red-600 transition">Home</a></li>
+        <li><a href="about.html" class="hover:text-red-600 transition">About Us</a></li>
+        <li><a href="services.html" class="hover:text-red-600 transition">Memberships / Services</a></li>
+        <li><a href="contact.html" class="hover:text-red-600 transition">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="mob-end relative">
+      <button id="menu-btn" class="self-end text-3xl md:hidden text-white">&#8801;</button>
+      <ul
+        id="menu"
+        class="font-[Poppins] cursor-pointer md:hidden lg:hidden md:space-x-9 text-gray-200 font-medium text-sm absolute md:static bg-[#111] md:bg-transparent top-12 right-0 w-48 rounded-xl shadow-lg flex-col md:flex-row space-y-4 md:space-y-0 p-4 md:p-0 border border-gray-700 transition-all duration-300 ease-in-out"
+      >
+        <li><a href="../index.html" class="block py-2 px-3 rounded-lg hover:bg-red-600 hover:text-white transition">Home</a></li>
+        <li><a href="./src/about.html" class="block py-2 px-3 rounded-lg hover:bg-red-600 hover:text-white transition">About Us</a></li>
+        <li><a href="./src/services.html" class="block py-2 px-3 rounded-lg hover:bg-red-600 hover:text-white transition">Memberships / Services</a></li>
+        <li><a href="./src/contact.html" class="block py-2 px-3 rounded-lg hover:bg-red-600 hover:text-white transition">Contact</a></li>
+      </ul>
+    </div>
+
+    <button
+      onclick="signup()"
+      class=" bg-[#E50914] hover:bg-red-700 text-black font-semibold px-5 py-2 rounded-lg transition"
+    >
+      Sign In
+    </button>
+  </nav>
+
+ 
+  <!-- gym vision section start -->
+
+
+  <!-- ✅ About Section Start -->
+  <section class=" fade-element  pt-60 pb-40 px-6 md:px-16 text-center">
+    <h1 class="text-4xl md:text-5xl font-bold mb-6 text-red-600">
+      About <span class="text-white">MJ Fitness</span>
+    </h1>
+    <p class="max-w-2xl mx-auto text-gray-300 text-lg leading-relaxed">
+      At <span class="text-red-500 font-semibold">MJ Fitness</span>, we believe fitness is not just a goal — 
+      it’s a lifestyle. Our mission is to help you transform your body and mind through discipline,
+      dedication, and expert guidance.
+    </p>
+  </section>
+
+  <!-- ✅ Mission & Vision Section -->
+  <section class=" fade-element  grid md:grid-cols-2 gap-10 px-6 md:px-20 mb-40">
+    <div class="bg-zinc-800 rounded-2xl p-8 shadow-lg">
+      <h2 class="text-2xl font-bold mb-4 text-red-500">Our <span class="text-2xl font-bold mb-4 text-white" >Mission</span></h2>
+      <p class="text-gray-300 leading-relaxed">
+        To inspire and empower individuals to achieve their best selves through
+        fitness, nutrition, and consistency — creating a strong and confident community.
+      </p>
+    </div>
+
+    <div class="bg-zinc-800 rounded-2xl p-8 shadow-lg">
+      <h2 class="text-2xl font-bold mb-4 text-red-500" >Our <span class="text-white" >Vision</span></h2>
+      <p class="text-gray-300 leading-relaxed">
+        To become the most trusted fitness center that combines motivation,
+        modern equipment, and expert trainers for every fitness level.
+      </p>
+    </div>
+  </section>
+
+  <!-- ✅ Trainer Highlight -->
+  <section class=" fade-element text-center mb-40">
+    <img   src="../gymowner.jpg" alt="Trainer"
+         class="mx-auto rounded-full rotate-270 w-48 h-48  mb-6">
+    <h2 class="text-2xl font-bold text-gray-200">M. Jahangir Khan</h2>
+    <p class="text-red-500 font-medium mb-4">Certified Fitness Trainer & Founder</p>
+    <p class="max-w-xl mx-auto text-gray-400">
+      With over 5 years of experience in the fitness industry, Jahangir Khan has helped 
+      hundreds of clients build strength, confidence, and discipline.
+    </p>
+  </section>
+
+  <!-- gym pics start -->
+
+<section class=" fade-element px-6 md:px-20 py-16  rounded-2xl shadow-xl mt-26">
+  <h2 class="text-center text-4xl font-bold text-red-500 mb-10"> Equipments</h2>
+  <p class="text-center text-gray-300 max-w-2xl mx-auto mb-12 text-lg">
+    At MJ Fitness, we believe quality equipment builds quality results. 
+    Our gym is equipped with world-class machines designed for strength, endurance, and overall performance.
+  </p>
+
+  <div class=" fade-element grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    
+    <!-- Equipment 1 -->
+    <div class="bg-zinc-900 p-6 rounded-xl hover:scale-105 transition-transform duration-300 shadow-lg">
+      <img src="../machines.png" alt="Treadmill" class="rounded-lg w-full h-56 object-cover mb-10">
+      <h3 class="text-xl font-semibold text-red-500 mb-2">Chest press</h3>
+      <p class="text-gray-400 text-sm">High-quality  machines to boost  and burn calories effectively.</p>
+    </div>
+
+    <!-- Equipment 2 -->
+    <div class="bg-zinc-900 p-6 rounded-xl hover:scale-105 transition-transform duration-300 shadow-lg">
+      <img src="../machinesss.png" alt="Dumbbells" class="rounded-lg w-full h-56 object-cover mb-10">
+      <h3 class="text-xl font-semibold text-red-500  mb-2">Lat Pull down</h3>
+      <p class="text-gray-400 text-sm">Wide range of weights to help you build strength, endurance, and muscle definition.</p>
+    </div>
+
+    <!-- Equipment 3 -->
+    <div class="bg-zinc-900 p-6 rounded-xl hover:scale-105 transition-transform duration-300 shadow-lg">
+      <img src="../machines2.png" alt="Cable Machine" class="rounded-lg w-full h-56 object-cover mb-10">
+      <h3 class="text-xl font-semibold text-red-500  mb-2">Leg press</h3>
+      <p class="text-gray-400 text-sm">Versatile setups for full-body workouts, targeting every major muscle group.</p>
+    </div>
+
+
+  </div>
+</section>
+<!-- Footer Section -->
+<footer class=" fade-element  text-gray-300 py-10 mt-20 border-t bg-zinc-900 border-gray-700">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+
+    <!-- Logo & Description -->
+    <div>
+      <h1 class="text-2xl font-bold font-[Poppins] text-white mb-3">
+        MJ<span class="text-red-600">Fitness</span>
+      </h1>
+      <p class="text-gray-400 text-sm leading-relaxed">
+        Building strength, discipline, and confidence. Join our community and take the first step toward your best self.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div>
+      <h2 class="text-xl font-semibold mb-4 text-white">Quick Links</h2>
+      <ul class="space-y-2">
+        <li><a href="../index.html" class="hover:text-red-500 transition">Home</a></li>
+        <li><a href="about.html" class="hover:text-red-500 transition">About Us</a></li>
+        <li><a href="services.html" class="hover:text-red-500 transition">Membership / Services</a></li>
+        <li><a href="contact.html" class="hover:text-red-500 transition">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Social Links -->
+    <div>
+      <h2 class="text-xl font-semibold mb-4 text-white">Connect With Us</h2>
+      <div class="flex space-x-4">
+        <a href="#" class="hover:text-red-500 transition">
+          <i class="fab fa-facebook-f text-2xl"></i>
+        </a>
+        <a href="#" class="hover:text-red-500 transition">
+          <i class="fab fa-instagram text-2xl"></i>
+        </a>
+        <a href="#" class="hover:text-red-500 transition">
+          <i class="fas fa-map-marker-alt text-2xl"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-5">
+    © 2025 MJ Fitness. All rights reserved.
+  </div>
+</footer>
+
+  <!-- Libraries -->
+  <script src="https://unpkg.com/lenis@1.3.11/dist/lenis.min.js"></script>
+<script src="app.js"></script>
+
+  
+</body>
+</html>
+<!-- npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch -->
+
+    <!-- npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch  -->
+<!-- index ka -->

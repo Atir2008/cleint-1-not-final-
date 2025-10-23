@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MJ Fitness | Services</title>
+  <link rel="shortcut icon" href="../logo.png" type="image/x-icon">
+    <!-- Tailwind CSS -->
+    <link href="./output.css" rel="stylesheet" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-auth.js"></script>
+
+  </head>
+
+  <body class="bg-zinc-900 text-white font-[Poppins]">
+    <!-- Navbar -->
+  <nav class="  fade-element backdrop-blur-lg  
+   flex items-center justify-between px-6 py-4  fixed top-0 left-0 w-full z-50 shadow-lg">
+    
+    <!-- Left: Logo + Name -->
+    <div class="flex items-center space-x-3">
+      <img src="../logo.png" alt="Logo" class="w-12 h-12 rounded-full">
+      <h1 class="text-2xl font-[Poppins] font-bold tracking-wider">
+        MJ<span class="text-red-600">Fitness</span>
+      </h1>
+    </div>
+    <!-- Center: Menu -->
+    <div class="absolute left-1/2 md:text-center  md:left-1/4  md:ms-8 
+  ">
+      <ul class=" font-[Poppins]  cursor-pointer hidden md:flex  space-x-9 text-gray-200 font-medium text-sm ">
+<li>
+  <a href="../index.html" 
+     class=" hover:hover:text-red-600 transition duration-300 ">
+    Home
+  </a>
+</li>        <li><a href="about.html" class="hover:text-red-600 transition">About Us</a></li>
+        <li><a href="services.html" class="hover:text-red-600 transition">Memberships / Services</a></li>
+        <li><a href="contact.html" class="hover:text-red-600 transition">Contact</a></li>
+      </ul>
+    </div>
+    
+
+      <div class="mob-end relative">
+      <button id="menu-btn" class="self-end text-3xl md:hidden text-white">&#8801;</button>
+      <ul
+        id="menu"
+        class="font-[Poppins] cursor-pointer md:hidden lg:hidden md:space-x-9 text-gray-200 font-medium text-sm absolute md:static bg-[#111] md:bg-transparent top-12 right-0 w-48 rounded-xl shadow-lg flex-col md:flex-row space-y-4 md:space-y-0 p-4 md:p-0 border border-gray-700 transition-all duration-300 ease-in-out"
+      >
+        <li><a href="../index.html" class="block py-2 px-3 rounded-lg hover:bg-red-600 hover:text-white transition">Home</a></li>
+        <li><a href="about.html" class="block py-2 px-3 rounded-lg hover:bg-red-600 hover:text-white transition">About Us</a></li>
+        <li><a href="services.html" class="block py-2 px-3 rounded-lg hover:bg-red-600 hover:text-white transition">Memberships / Services</a></li>
+        <li><a href="contact.html" class="block py-2 px-3 rounded-lg hover:bg-red-600 hover:text-white transition">Contact</a></li>
+      </ul>
+    </div>
+   <button
+      onclick="signup()"
+      class=" bg-[#E50914] hover:bg-red-700 text-black font-semibold px-5 py-2 rounded-lg transition"
+    >
+      Sign In
+    </button>
+
+  </nav>
+
+    <!-- What We Offer -->
+    <section class="  fade-element py-24 mt-36 text-center px-6 md:px-20">
+      <h1
+        class="text-4xl md:text-5xl font-extrabold mb-16 text-gray-100 leading-tight"
+      >
+        What We <span class="text-red-600">Offer</span>
+      </h1>
+
+      <!-- Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 animate-fadeIn">
+        <div
+          class="bg-zinc-800/70 shadow-lg rounded-2xl p-8 hover:-translate-y-2 transition-all duration-300"
+        >
+          <h3 class="text-2xl font-semibold mb-3 text-red-500">
+            High-Quality Equipment
+          </h3>
+          <p class="text-gray-300 leading-relaxed">
+            Train with state-of-the-art machines and durable free weights for
+            effective and safe results.
+          </p>
+        </div>
+
+        <div
+          class="bg-zinc-800/70 shadow-lg rounded-2xl p-8 hover:-translate-y-2 transition-all duration-300"
+        >
+          <h3 class="text-2xl font-semibold mb-3 text-red-500">
+            Expert Trainers
+          </h3>
+          <p class="text-gray-300 leading-relaxed">
+            Certified coaches design personalized workout programs suited to
+            your body and goals.
+          </p>
+        </div>
+
+        <div
+          class="bg-zinc-800/70 shadow-lg rounded-2xl p-8 hover:-translate-y-2 transition-all duration-300"
+        >
+          <h3 class="text-2xl font-semibold mb-3 text-red-500">
+            Safe Environment
+          </h3>
+          <p class="text-gray-300 leading-relaxed">
+            A sanitized, comfortable, and motivating space for all fitness
+            enthusiasts.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Memberships plan start here -->
+
+    <!-- Membership Plans Section -->
+<section class="fade-element  py-24 bg-zinc-900 text-white text-center">
+  <h1 class="text-4xl md:text-5xl font-bold mb-16 font-[Poppins]">
+    Membership <span class="text-red-600">Plans</span>
+  </h1>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-10 px-6 md:px-20">
+    <!-- Beginner Plan -->
+    <div
+      class="bg-zinc-800 p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition duration-300"
+    >
+      <h3 class="text-2xl font-semibold mb-3 text-red-500">Beginner Level</h3>
+      <p class="text-gray-300 mb-6">Perfect for newcomers starting their fitness journey.</p>
+      <div class="text-3xl font-bold mb-4">Rs. 3,000 <span class="text-base text-gray-400">/ month</span></div>
+      <div class="text-gray-400 mb-6">or Rs. 20,000 / year</div>
+      <ul class="text-gray-300 space-y-2 mb-8">
+        <li> Basic Equipment Access</li>
+        <li> General Workout Guidance</li>
+        <li> Locker Facility</li>
+      </ul>
+<button id="membership" 
+  onclick="window.location.href='contact.html'" 
+  class="bg-red-600 hover:bg-red-700 px-6 py-3 rounded-lg">
+  Join Now
+</button>    </div>
+
+    <!-- Intermediate Plan -->
+        <div
+      class="bg-zinc-800 p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition duration-300"
+    >
+      <h3 class="text-2xl font-semibold mb-3 text-red-500">Intermediate Level</h3>
+      <p class="text-gray-300 mb-6">For regular gym-goers looking to build muscle and stamina.</p>
+      <div class="text-3xl font-bold mb-4">Rs. 5,000 <span class="text-base text-gray-400">/ month</span></div>
+      <div class="text-gray-400 mb-6">or Rs. 32,000 / year</div>
+      <ul class="text-gray-300 space-y-2 mb-8">
+        <li> All Gym Equipment Access</li>
+        <li> Custom Diet & Workout Plan</li>
+        <li> 1-on-1 Trainer Support</li>
+      </ul>
+<button id="membership" 
+  onclick="window.location.href='contact.html'" 
+  class="bg-red-600 hover:bg-red-700 px-6 py-3 rounded-lg">
+  Join Now
+</button>    </div>
+
+    <!-- Advanced Plan -->
+    <div
+      class="bg-zinc-800 p-8 rounded-2xl shadow-lg hover:-translate-y-2 transition duration-300"
+    >
+      <h3 class="text-2xl font-semibold mb-3 text-red-500">Advanced Level</h3>
+      <p class="text-gray-300 mb-6">For athletes and professionals aiming for peak performance.</p>
+      <div class="text-3xl font-bold mb-4">Rs. 8,000 <span class="text-base text-gray-400">/ month</span></div>
+      <div class="text-gray-400 mb-6">or Rs. 50,000 / year</div>
+      <ul class="text-gray-300 space-y-2 mb-8">
+        <li> Full Access + Personal Trainer</li>
+        <li> Nutritional Coaching</li>
+        <li> Progress Tracking Reports</li>
+      </ul>
+    <button id="membership" 
+  onclick="window.location.href='contact.html'" 
+  class="bg-red-600 hover:bg-red-700 px-6 py-3 rounded-lg">
+  Join Now
+</button>
+    </div>
+  </div>
+</section>
+
+    <!-- Why Choose Us -->
+      <section class=" fade-element py-28 bg-zinc-900 text-center px-6 md:px-24"> 
+      <h1
+        class="text-4xl md:text-5xl font-extrabold mb-12 text-gray-100 leading-tight"
+      >
+        Why <span class="text-red-600">Choose Us</span>
+      </h1>
+
+      <div
+        class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10 text-gray-300 text-lg"
+      >
+        <div
+          class="bg-zinc-800/60 p-10 rounded-2xl shadow-lg hover:bg-zinc-800 transition duration-300"
+        >
+          <h3 class="text-2xl font-semibold mb-3 text-red-500">
+            Personalized Fitness Approach
+          </h3>
+          <p>
+            We understand every body is unique. That’s why our plans are built
+            to match your lifestyle and fitness journey.
+          </p>
+        </div>
+
+        <div
+          class="bg-zinc-800/60 p-10 rounded-2xl shadow-lg hover:bg-zinc-800 transition duration-300"
+        >
+          <h3 class="text-2xl font-semibold mb-3 text-red-500">
+            Proven Results & Motivation
+          </h3>
+          <p>
+            Our success stories speak for themselves — we keep you motivated and
+            consistent throughout your transformation.
+          </p>
+        </div>
+
+        <div
+          class="bg-zinc-800/60 p-10 rounded-2xl shadow-lg hover:bg-zinc-800 transition duration-300"
+        >
+          <h3 class="text-2xl font-semibold mb-3 text-red-500">
+            Community & Support
+          </h3>
+          <p>
+            Join a fitness family that pushes you to grow stronger every day —
+            mentally and physically.
+          </p>
+        </div>
+      </div>
+    </section>  
+
+<footer class=" fade-element text-gray-300 py-10 mt-20 border-t bg-zinc-900 border-gray-700">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+
+    <!-- Logo & Description -->
+    <div>
+      <h1 class="text-2xl font-bold font-[Poppins] text-white mb-3">
+        MJ<span class="text-red-600">Fitness</span>
+      </h1>
+      <p class="text-gray-400 text-sm leading-relaxed">
+        Building strength, discipline, and confidence. Join our community and take the first step toward your best self.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div>
+      <h2 class="text-xl font-semibold mb-4 text-white">Quick Links</h2>
+      <ul class="space-y-2">
+        <li><a href="../index.html" class="hover:text-red-500 transition">Home</a></li>
+        <li><a href="about.html" class="hover:text-red-500 transition">About Us</a></li>
+        <li><a href="services.html" class="hover:text-red-500 transition">Membership / Services</a></li>
+        <li><a href="contact.html" class="hover:text-red-500 transition">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Social Links -->
+    <div>
+      <h2 class="text-xl font-semibold mb-4 text-white">Connect With Us</h2>
+      <div class="flex space-x-4">
+        <a href="" class="hover:text-red-500 transition">
+          <i class="fab fa-facebook-f text-2xl"></i>
+        </a>
+        <a href="#" class="hover:text-red-500 transition">
+          <i class="fab fa-instagram text-2xl"></i>
+        </a>
+        <a href="#" class="hover:text-red-500 transition">
+          <i class="fas fa-map-marker-alt text-2xl"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-5">
+    © 2025 MJ Fitness. All rights reserved.
+  </div>
+</footer>
+
+
+  <script src="https://unpkg.com/lenis@1.3.11/dist/lenis.min.js"></script>
+  <script src="app.js"></script>
+
+  </body>
+</html>
