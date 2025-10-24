@@ -88,9 +88,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Initialize Lenis for smooth scrolling
   const lenis = new Lenis({
     smooth: true,
-    lerp: 0.03, 
+    lerp: 0.01, // smooth speed
   });
 
   function raf(time) {
@@ -106,15 +107,15 @@ document.addEventListener("DOMContentLoaded", () => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("fade-visible");
+          entry.target.style.transitionDelay = `${entry.target.dataset.delay || 0}s`;
         } else {
           entry.target.classList.remove("fade-visible");
         }
       });
     },
     {
-      threshold: 0, 
-      rootMargin: "0px 0px -50px 0px", 
-   
+      threshold: 0.001, 
+      rootMargin: "0px 0px -1% 0px", 
     }
   );
 
@@ -131,7 +132,6 @@ function contact() {
 
     if (names === "" || email === "" || textarea === "") {
         console.log("Please enter all values.");
-        alert("Please fill in all fields!");
         ;
     }
 
